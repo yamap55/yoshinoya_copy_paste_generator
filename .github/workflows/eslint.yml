@@ -1,0 +1,30 @@
+name: eslint
+on: [push]
+
+jobs:
+  eslint:
+    name: runner / eslint
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - run: npm ci
+      # NOTE: 動作しないためコメントアウト
+      #   - uses: reviewdog/action-eslint@v1
+      #     with:
+      #       github_token: ${{ secrets.GITHUB_TOKEN }}
+      #       reporter: github-check
+      #       fail_level: error
+      - name: eslint
+        run: npm run lint

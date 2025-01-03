@@ -1,5 +1,5 @@
 {
-    "name": "TypeScript Repository Simple",
+    "name": "yoshinoya_copy_paste_generator",
     // Use docker-compose.extend.yml to run a command that keeps the container running.
     "dockerComposeFile": [
         "./compose.yaml"

@@ -1,8 +1,8 @@
-# typescript_repository_simple
+# yoshinoya_copy_paste_generator
 
-本リポジトリはシンプルな TypeScript 環境のテンプレートリポジトリです
-Dev Container の設定をしていますので、VS Code と Docker、Git さえあれば各種開発用設定が行われた Python の開発環境が構築され、即時開発が可能です
-GitHub のリポジトリページの「Use this template」を押下して使用してください
+[吉野家コピペ](https://dic.nicovideo.jp/a/%E5%90%89%E9%87%8E%E5%AE%B6%E3%82%B3%E3%83%94%E3%83%9A)を改変するためのジェネレーターです。
+
+[2003年頃にあったもの](https://web.archive.org/web/20031204210402/http://8931.com/yosinoya.php3)を再現しています。
 
 ## 内容
 
@@ -27,22 +27,6 @@ GitHub のリポジトリページの「Use this template」を押下して使�
 - `.env` ファイルを空ファイルでプロジェクト直下に作成
 - ssh-agent の設定
   - https://code.visualstudio.com/docs/devcontainers/containers#_using-a-credential-helper
-- 以下をプロジェクト名に合わせて変更
-  - `.devcontainer/devcontainer.json`
-    - `name`
-  - `compose.yaml`
-    - `image`, `container_name`
-    - `env_file`
-      - 環境変数を使用しない場合は除去
-  - `src/index.ts`
-    - `src/utils/message.ts`
-  - `README.md`
-  - `LICENSE`
-  - dependabot
-    - `.github/dependabot.yml`
-    - `.github/workflows/auto_merge_depandabot.yml`
-  - package.json
-    - `name`
 
 ### 開発手順
 

@@ -1,5 +1,5 @@
 {
-  "name": "typescript-template",
+  "name": "yoshinoya_copy_paste_generator",
   "version": "1.0.0",
   "type": "module",
   "main": "dist/index.js",

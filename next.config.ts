@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  basePath: "/yoshinoya_copy_paste_generator",
 };
 
 export default nextConfig;

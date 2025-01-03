@@ -1,5 +1,9 @@
 # yoshinoya_copy_paste_generator
 
+https://yamap55.github.io/yoshinoya_copy_paste_generator/
+
+## 概要
+
 [吉野家コピペ](https://dic.nicovideo.jp/a/%E5%90%89%E9%87%8E%E5%AE%B6%E3%82%B3%E3%83%94%E3%83%9A)を改変するためのジェネレーターです。
 
 [2003年頃にあったもの](https://web.archive.org/web/20031204210402/http://8931.com/yosinoya.php3)を再現しています。

@@ -43,6 +43,8 @@
 
 - ビルド
   - `npm run build`
+- ビルドされたファイルをローカルで確認
+  - `npx serve out`
 - 実行
   - `npm start`
 - テスト

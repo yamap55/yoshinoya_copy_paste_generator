@@ -9,9 +9,6 @@ const nextConfig: NextConfig = {
   },
   basePath: basePath,
   assetPrefix: basePath,
-  publicRuntimeConfig: {
-    basePath,
-  },
 };
 
 export default nextConfig;

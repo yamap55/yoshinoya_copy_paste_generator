@@ -12,9 +12,11 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 export const metadata: Metadata = {
   title: "吉野家コピペジェネレータ",
   description: "吉野家コピペジェネレータ",
+  openGraph: { images: [`${basePath}/ogp.png`] },
 };
 
 export default function RootLayout({

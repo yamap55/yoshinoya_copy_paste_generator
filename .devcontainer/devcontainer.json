@@ -55,7 +55,8 @@
         "usernamehw.errorlens",
         "GitHub.copilot",
         "GitHub.vscode-github-actions",
-        "Orta.vscode-jest"
+        "Orta.vscode-jest",
+        "bradlc.vscode-tailwindcss"
       ]
     }
   },

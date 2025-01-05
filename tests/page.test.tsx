@@ -1,6 +1,6 @@
 // filepath: /project/tests/page.test.tsx
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom"; // 修正
 import Home from "../src/app/page";
 
@@ -12,37 +12,56 @@ jest.mock("next/config", () => () => ({
 }));
 
 describe("Home", () => {
-  it("renders the Next.js logo", () => {
+  it("renders the main heading", () => {
     render(<Home />);
-    const logo = screen.getByAltText("Next.js logo");
-    expect(logo).toBeInTheDocument();
+    const heading = screen.getByText("吉野家コピペジェネレータ");
+    expect(heading).toBeInTheDocument();
   });
 
-  it('renders the "Get started by editing" text', () => {
+  it("renders all form fields", () => {
     render(<Home />);
-    const getStartedText = screen.getByText(/Get started by editing/i);
-    expect(getStartedText).toBeInTheDocument();
+    const fields = [
+      "誰に訴えますか？",
+      "どこで？",
+      "どうした？",
+      "そしたらどういう状態だったの？",
+      "だからどうだったの？",
+      "んで、もっとよく見たらどうだった？",
+      "何「ごとき」で来てる人が多い？",
+      "パパは何をしました（言った）か？",
+      "なにをあげますか",
+      "そのかわりどうさせますか？",
+      "どこのヤツとケンカがはじまってもおかしくないですか？",
+      "んで、やっとどうできましたか？",
+      "その時隣の奴は何といってましたか？",
+      "↑の質問に対してどう問い詰めたいですか？",
+      "通のあなたが頼むのは？（まん中は必ず書いてください）",
+      "上の質問のまん中はどうなの？",
+      "その代わりどうなの？",
+      "次からダレにマークされますか？",
+      "ド素人がするべき事は",
+    ];
+
+    fields.forEach((labelText) => {
+      const label = screen.getByText(labelText);
+      expect(label).toBeInTheDocument();
+    });
   });
 
-  it('renders the "Deploy now" link', () => {
+  it("updates the generated text when input values change", () => {
     render(<Home />);
-    const deployLink = screen.getByText(/Deploy now/i);
-    expect(deployLink).toBeInTheDocument();
+
+    const input = screen.getByPlaceholderText("吉野家");
+    fireEvent.change(input, { target: { value: "すき家" } });
+
+    const generatedText = screen.getByText(/昨日、すき家行ったんです。すき家。/);
+    expect(generatedText).toBeInTheDocument();
   });
 
-  it('renders the "Read our docs" link', () => {
+  it("renders the default generated text when no inputs are provided", () => {
     render(<Home />);
-    const docsLink = screen.getByText(/Read our docs/i);
-    expect(docsLink).toBeInTheDocument();
-  });
 
-  it("renders the footer links", () => {
-    render(<Home />);
-    const learnLink = screen.getByText(/Learn/i);
-    const examplesLink = screen.getByText(/Examples/i);
-    const nextjsLink = screen.getByText(/Go to nextjs.org/i);
-    expect(learnLink).toBeInTheDocument();
-    expect(examplesLink).toBeInTheDocument();
-    expect(nextjsLink).toBeInTheDocument();
+    const defaultText = screen.getByText(/昨日、近所の吉野家行ったんです。吉野家。/);
+    expect(defaultText).toBeInTheDocument();
   });
 });

@@ -45,6 +45,8 @@ https://yamap55.github.io/yoshinoya_copy_paste_generator/
 
 ## NOTE
 
+- 開発
+  - `npm run dev`
 - ビルド
   - `npm run build`
 - ビルドされたファイルをローカルで確認

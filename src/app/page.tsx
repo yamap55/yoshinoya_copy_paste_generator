@@ -1,96 +1,266 @@
-import Image from "next/image";
+"use client";
+import { useState } from "react";
+// import Image from "next/image";
 
 export default function Home() {
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src={`${basePath}/next.svg`}
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  //   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+  const [formData, setFormData] = useState({
+    who: "",
+    where: "",
+    what: "",
+    situation: "",
+    result: "",
+    banner: "",
+    discount: "",
+    action: "",
+    give: "",
+    demand: "",
+    conflictWith: "",
+    finallySeated: "",
+    neighborSaid: "",
+    confrontNeighbor: "",
+    orderPart1: "",
+    orderPart2: "",
+    orderPart3: "",
+    middleDetail: "",
+    instead: "",
+    markedBy: "",
+    advice: "",
+  });
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src={`${basePath}/vercel.svg`}
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const generatedText = `
+    そんな事より${formData.who || "1"}よ、ちょいと聞いてくれよ。スレとあんま関係ないけどさ。
+    昨日、${formData.where || "近所の吉野家"}行ったんです。${formData.where || "吉野家"}。
+    そしたらなんか${formData.situation || "人がめちゃくちゃいっぱい"}で${formData.result || "座れない"}んです。
+    で、よく見たらなんか${formData.banner || "垂れ幕下がってて、１５０円引き"}、とか書いてあるんです。
+    もうね、アホかと。馬鹿かと。
+    お前らな、${formData.discount || "１５０円引き"}如きで普段来てない${formData.where || "吉野家"}に来てんじゃねーよ、ボケが。
+    ${formData.discount || "１５０円"}だよ、${formData.discount || "１５０円"}。
+    なんか親子連れとかもいるし。一家４人で${formData.where || "吉野家"}か。おめでてーな。
+    よーしパパ${formData.action || "特盛頼んじゃうぞー"}、とか言ってるの。もう見てらんない。
+    お前らな、${formData.give || "１５０円やる"}から${formData.demand || "その席空けろ"}と。
+    ${formData.where || "吉野家"}ってのはな、もっと殺伐としてるべきなんだよ。
+    ${formData.conflictWith || "Ｕの字テーブルの向かいに座った"}奴といつ喧嘩が始まってもおかしくない、
+    刺すか刺されるか、そんな雰囲気がいいんじゃねーか。女子供は、すっこんでろ。
+    で、やっと${formData.finallySeated || "座れた"}かと思ったら、隣の奴が、${formData.neighborSaid || "大盛つゆだくで"}、とか言ってるんです。
+    そこでまたぶち切れですよ。
+    あのな、${formData.neighborSaid || "つゆだく"}なんてきょうび流行んねーんだよ。ボケが。
+    得意げな顔して何が、${formData.neighborSaid || "つゆだく"}、だ。
+    お前は本当に${formData.confrontNeighbor || "食いたい"}のかと問いたい。問い詰めたい。小１時間問い詰めたい。
+    お前、${formData.neighborSaid || "つゆだく"}って言いたいだけちゃうんかと。
+    ${formData.where || "吉野家"}通の俺から言わせてもらえば今、${formData.where || "吉野家"}通の間での最新流行はやっぱり、
+    ${formData.orderPart1 || "大盛り"}${formData.orderPart2 || "ねぎだく"}${formData.orderPart3 || "ギョク"}。これが通の頼み方。
+    ${formData.orderPart2 || "ねぎだく"}ってのは${formData.middleDetail || "ネギが多めに入ってる"}。そん代わり${formData.instead || "肉が少なめ"}。これ。
+    で、それに${formData.orderPart1 || "大盛り"}${formData.orderPart3 || "ギョク（玉子）"}。これ最強。
+    しかしこれを頼むと次から${formData.markedBy || "店員"}にマークされるという危険も伴う、諸刃の剣。
+    素人にはお薦め出来ない。
+    まあお前らド素人は、${formData.advice || "牛鮭定食でも食ってなさい"}ってこった。
+  `;
+
+  return (
+    <>
+      <h1 className="text-3xl font-bold mb-4">吉野家コピペジェネレータ</h1>
+      <div className="p-4 bg-gray-100 rounded-lg shadow-md">
+        <p className="mb-4">下記の質問にお答えください</p>
+        <form className="space-y-4">
+          <div>
+            <label className="block mb-1">誰に訴えますか？</label>
+            <input
+              name="who"
+              className="w-full p-2 border border-gray-300 rounded"
+              placeholder="1"
+              onChange={handleChange}
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image aria-hidden src={`${basePath}/file.svg`} alt="File icon" width={16} height={16} />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src={`${basePath}/window.svg`}
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src={`${basePath}/globe.svg`}
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+          </div>
+          <div>
+            <label className="block mb-1">どこで？</label>
+            <input
+              name="where"
+              className="w-full p-2 border border-gray-300 rounded"
+              placeholder="吉野家"
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label className="block mb-1">どうした？</label>
+            <input
+              name="what"
+              className="w-full p-2 border border-gray-300 rounded"
+              placeholder="行った"
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label className="block mb-1">そしたらどういう状態だったの？</label>
+            <input
+              name="situation"
+              className="w-full p-2 border border-gray-300 rounded"
+              placeholder="人がめちゃくちゃいっぱい"
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label className="block mb-1">だからどうだったの？</label>
+            <input
+              name="result"
+              className="w-full p-2 border border-gray-300 rounded"
+              placeholder="座れない"
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label className="block mb-1">んで、もっとよく見たらどうだった？</label>
+            <input
+              name="banner"
+              className="w-full p-2 border border-gray-300 rounded"
+              placeholder="垂れ幕下がってて、１５０円引き、とか書いてある"
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label className="block mb-1">何「ごとき」で来てる人が多い？</label>
+            <input
+              name="discount"
+              className="w-full p-2 border border-gray-300 rounded"
+              placeholder="１５０円引"
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label className="block mb-1">パパは何をしました（言った）か？</label>
+            <input
+              name="action"
+              className="w-full p-2 border border-gray-300 rounded"
+              placeholder="特盛り頼んじゃうぞー"
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label className="block mb-1">なにをあげますか</label>
+            <input
+              name="give"
+              className="w-full p-2 border border-gray-300 rounded"
+              placeholder="１５０円やる"
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label className="block mb-1">そのかわりどうさせますか？</label>
+            <input
+              name="demand"
+              className="w-full p-2 border border-gray-300 rounded"
+              placeholder="その席空けろ"
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label className="block mb-1">
+              どこのヤツとケンカがはじまってもおかしくないですか？
+            </label>
+            <input
+              name="conflictWith"
+              className="w-full p-2 border border-gray-300 rounded"
+              placeholder="Ｕの字テーブルの向かいに座った"
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label className="block mb-1">んで、やっとどうできましたか？</label>
+            <input
+              name="finallySeated"
+              className="w-full p-2 border border-gray-300 rounded"
+              placeholder="座れた"
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label className="block mb-1">その時隣の奴は何といってましたか？</label>
+            <input
+              name="neighborSaid"
+              className="w-full p-2 border border-gray-300 rounded"
+              placeholder="大盛つゆだくで"
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label className="block mb-1">↑の質問に対してどう問い詰めたいですか？</label>
+            <input
+              name="confrontNeighbor"
+              className="w-full p-2 border border-gray-300 rounded"
+              placeholder="食いたい"
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label className="block mb-1">
+              通のあなたが頼むのは？（まん中は必ず書いてください）
+            </label>
+            <input
+              name="orderPart1"
+              className="w-full p-2 border border-gray-300 rounded"
+              placeholder="大盛り"
+              onChange={handleChange}
+            />
+            <input
+              name="orderPart2"
+              className="w-full p-2 border border-gray-300 rounded"
+              placeholder="ねぎだく"
+              onChange={handleChange}
+            />
+            <input
+              name="orderPart3"
+              className="w-full p-2 border border-gray-300 rounded"
+              placeholder="ギョク（玉子）"
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label className="block mb-1">上の質問のまん中はどうなの？</label>
+            <input
+              name="middleDetail"
+              className="w-full p-2 border border-gray-300 rounded"
+              placeholder="ネギが多めに入ってる"
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label className="block mb-1">その代わりどうなの？</label>
+            <input
+              name="instead"
+              className="w-full p-2 border border-gray-300 rounded"
+              placeholder="肉が少なめ"
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label className="block mb-1">次からダレにマークされますか？</label>
+            <input
+              name="markedBy"
+              className="w-full p-2 border border-gray-300 rounded"
+              placeholder="店員"
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label className="block mb-1">ド素人がするべき事は</label>
+            <input
+              name="advice"
+              className="w-full p-2 border border-gray-300 rounded"
+              placeholder="牛鮭定食でも食ってなさい"
+              onChange={handleChange}
+            />
+          </div>
+        </form>
+      </div>
+      <div className="mt-8 p-4 bg-white rounded-lg shadow-md">
+        <h2 className="text-2xl font-bold mb-4">生成されたコピペ</h2>
+        <pre className="whitespace-pre-wrap">{generatedText}</pre>
+      </div>
+    </>
   );
 }

@@ -4,6 +4,13 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom"; // 修正
 import Home from "../src/app/page";
 
+// next/configのモックを追加
+jest.mock("next/config", () => () => ({
+  publicRuntimeConfig: {
+    basePath: "/base-path",
+  },
+}));
+
 describe("Home", () => {
   it("renders the Next.js logo", () => {
     render(<Home />);

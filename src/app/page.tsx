@@ -52,34 +52,34 @@ export default function Home() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const generatedText = `
-    そんな事より${formData.who || "1"}よ、ちょいと聞いてくれよ。スレとあんま関係ないけどさ。
-    昨日、${formData.where || "近所の吉野家"}行ったんです。${formData.where || "吉野家"}。
-    そしたらなんか${formData.situation || "人がめちゃくちゃいっぱい"}で${formData.result || "座れない"}んです。
-    で、よく見たらなんか${formData.banner || "垂れ幕下がってて、１５０円引き"}、とか書いてあるんです。
-    もうね、アホかと。馬鹿かと。
-    お前らな、${formData.discount || "１５０円引き"}如きで普段来てない${formData.where || "吉野家"}に来てんじゃねーよ、ボケが。
-    ${formData.discount || "１５０円"}だよ、${formData.discount || "１５０円"}。
-    なんか親子連れとかもいるし。一家４人で${formData.where || "吉野家"}か。おめでてーな。
-    よーしパパ${formData.action || "特盛頼んじゃうぞー"}、とか言ってるの。もう見てらんない。
-    お前らな、${formData.give || "１５０円やる"}から${formData.demand || "その席空けろ"}と。
-    ${formData.where || "吉野家"}ってのはな、もっと殺伐としてるべきなんだよ。
-    ${formData.conflictWith || "Ｕの字テーブルの向かいに座った"}奴といつ喧嘩が始まってもおかしくない、
-    刺すか刺されるか、そんな雰囲気がいいんじゃねーか。女子供は、すっこんでろ。
-    で、やっと${formData.finallySeated || "座れた"}かと思ったら、隣の奴が、${formData.neighborSaid || "大盛つゆだくで"}、とか言ってるんです。
-    そこでまたぶち切れですよ。
-    あのな、${formData.neighborSaid || "つゆだく"}なんてきょうび流行んねーんだよ。ボケが。
-    得意げな顔して何が、${formData.neighborSaid || "つゆだく"}、だ。
-    お前は本当に${formData.confrontNeighbor || "食いたい"}のかと問いたい。問い詰めたい。小１時間問い詰めたい。
-    お前、${formData.neighborSaid || "つゆだく"}って言いたいだけちゃうんかと。
-    ${formData.where || "吉野家"}通の俺から言わせてもらえば今、${formData.where || "吉野家"}通の間での最新流行はやっぱり、
-    ${formData.orderPart1 || "大盛り"}${formData.orderPart2 || "ねぎだく"}${formData.orderPart3 || "ギョク"}。これが通の頼み方。
-    ${formData.orderPart2 || "ねぎだく"}ってのは${formData.middleDetail || "ネギが多めに入ってる"}。そん代わり${formData.instead || "肉が少なめ"}。これ。
-    で、それに${formData.orderPart1 || "大盛り"}${formData.orderPart3 || "ギョク（玉子）"}。これ最強。
-    しかしこれを頼むと次から${formData.markedBy || "店員"}にマークされるという危険も伴う、諸刃の剣。
-    素人にはお薦め出来ない。
-    まあお前らド素人は、${formData.advice || "牛鮭定食でも食ってなさい"}ってこった。
-  `;
+  const generatedText = `\
+そんな事より${formData.who || "1"}よ、ちょいと聞いてくれよ。スレとあんま関係ないけどさ。
+昨日、${formData.where || "近所の吉野家"}行ったんです。${formData.where || "吉野家"}。
+そしたらなんか${formData.situation || "人がめちゃくちゃいっぱい"}で${formData.result || "座れない"}んです。
+で、よく見たらなんか${formData.banner || "垂れ幕下がってて、１５０円引き"}、とか書いてあるんです。
+もうね、アホかと。馬鹿かと。
+お前らな、${formData.discount || "１５０円引き"}如きで普段来てない${formData.where || "吉野家"}に来てんじゃねーよ、ボケが。
+${formData.discount || "１５０円"}だよ、${formData.discount || "１５０円"}。
+なんか親子連れとかもいるし。一家４人で${formData.where || "吉野家"}か。おめでてーな。
+よーしパパ${formData.action || "特盛頼んじゃうぞー"}、とか言ってるの。もう見てらんない。
+お前らな、${formData.give || "１５０円やる"}から${formData.demand || "その席空けろ"}と。
+${formData.where || "吉野家"}ってのはな、もっと殺伐としてるべきなんだよ。
+${formData.conflictWith || "Ｕの字テーブルの向かいに座った"}奴といつ喧嘩が始まってもおかしくない、
+刺すか刺されるか、そんな雰囲気がいいんじゃねーか。女子供は、すっこんでろ。
+で、やっと${formData.finallySeated || "座れた"}かと思ったら、隣の奴が、${formData.neighborSaid || "大盛つゆだくで"}、とか言ってるんです。
+そこでまたぶち切れですよ。
+あのな、${formData.neighborSaid || "つゆだく"}なんてきょうび流行んねーんだよ。ボケが。
+得意げな顔して何が、${formData.neighborSaid || "つゆだく"}、だ。
+お前は本当に${formData.confrontNeighbor || "食いたい"}のかと問いたい。問い詰めたい。小１時間問い詰めたい。
+お前、${formData.neighborSaid || "つゆだく"}って言いたいだけちゃうんかと。
+${formData.where || "吉野家"}通の俺から言わせてもらえば今、${formData.where || "吉野家"}通の間での最新流行はやっぱり、
+${formData.orderPart1 || "大盛り"}${formData.orderPart2 || "ねぎだく"}${formData.orderPart3 || "ギョク"}。これが通の頼み方。
+${formData.orderPart2 || "ねぎだく"}ってのは${formData.middleDetail || "ネギが多めに入ってる"}。そん代わり${formData.instead || "肉が少なめ"}。これ。
+で、それに${formData.orderPart1 || "大盛り"}${formData.orderPart3 || "ギョク（玉子）"}。これ最強。
+しかしこれを頼むと次から${formData.markedBy || "店員"}にマークされるという危険も伴う、諸刃の剣。
+素人にはお薦め出来ない。
+まあお前らド素人は、${formData.advice || "牛鮭定食でも食ってなさい"}ってこった。\
+`;
 
   const handleCopy = () => {
     navigator.clipboard.writeText(generatedText).then(() => {

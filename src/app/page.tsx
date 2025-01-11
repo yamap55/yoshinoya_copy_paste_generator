@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 // import Image from "next/image";
+import { ClipboardIcon } from "@heroicons/react/24/outline";
 
 export default function Home() {
   //   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
@@ -79,6 +80,12 @@ export default function Home() {
     素人にはお薦め出来ない。
     まあお前らド素人は、${formData.advice || "牛鮭定食でも食ってなさい"}ってこった。
   `;
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(generatedText).then(() => {
+      alert("クリップボードにコピーしました！");
+    });
+  };
 
   return (
     <>
@@ -279,7 +286,12 @@ export default function Home() {
         </form>
       </div>
       <div className="mt-8 p-4 bg-white rounded-lg shadow-md">
-        <h2 className="text-2xl font-bold mb-4">生成されたコピペ</h2>
+        <h2 className="text-2xl font-bold mb-4 flex items-center">
+          生成されたコピペ
+          <button onClick={handleCopy} className="ml-2 flex items-center space-x-2">
+            <ClipboardIcon className="h-5 w-5" />
+          </button>
+        </h2>
         <pre className="whitespace-pre-wrap">{generatedText}</pre>
       </div>
     </>

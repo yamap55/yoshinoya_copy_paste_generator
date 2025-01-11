@@ -20,7 +20,11 @@ https://yamap55.github.io/yoshinoya_copy_paste_generator/
 ## 環境詳細
 
 - Node.js: v22
-- Next.js: v15
+- Web
+  - Next.js: v15
+  - GitHub Pages
+- API
+  - Firebase Functions
 
 ### 事前準備
 
@@ -45,6 +49,8 @@ https://yamap55.github.io/yoshinoya_copy_paste_generator/
 
 ## NOTE
 
+### Web
+
 - 開発
   - `npm run dev`
 - ビルド
@@ -55,3 +61,12 @@ https://yamap55.github.io/yoshinoya_copy_paste_generator/
   - `npm start`
 - テスト
   - `npm test`
+
+### API
+
+- 準備
+  - `cd functions`
+  - `npm ci`
+  - `npx firebase login`
+- デプロイ
+  - `npx firebase deploy --only functions`

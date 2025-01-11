@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 // import Image from "next/image";
 
 export default function Home() {
@@ -27,6 +27,24 @@ export default function Home() {
     markedBy: "",
     advice: "",
   });
+
+  const [visitorNumber, setVisitorNumber] = useState<number | null>(null);
+
+  useEffect(() => {
+    const fetchVisitorNumber = async () => {
+      try {
+        const response = await fetch(
+          "https://asia-northeast1-yoshinoya-copy-paste-generator.cloudfunctions.net/incrementCounter",
+        );
+        const data = await response.json();
+        setVisitorNumber(data.visitor_number);
+      } catch (error) {
+        console.error("Error fetching visitor number:", error);
+      }
+    };
+
+    fetchVisitorNumber();
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -65,6 +83,9 @@ export default function Home() {
   return (
     <>
       <h1 className="text-3xl font-bold mb-4">吉野家コピペジェネレータ</h1>
+      <p className="mb-4">
+        あなたは{visitorNumber !== null ? visitorNumber : "？"}人目の吉野家店員です。
+      </p>
       <div className="p-4 bg-gray-100 rounded-lg shadow-md">
         <p className="mb-4">下記の質問にお答えください</p>
         <form className="space-y-4">
